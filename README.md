@@ -696,6 +696,7 @@ Real-world use cases and implementation patterns. The x402 protocol has seen **1
 - Dynamic Pricing Strategy - SIWE authentication with conditional pricing.
 
 ## 🤖 AI Agent Integration
+- [Linkrra Synap](https://synap.linkrra.com) - OpenAI-compatible LLM inference paid per call in USDC on Base via x402 v2 (`POST https://pool.linkrra.com/api/billing/x402/chat/completions`, live 402 with `accepts` pricing; min $0.01, unused price difference credited back to the paying wallet). Models served from GET /v1/models: GLM-5.3 (+flash), DeepSeek V4 (pro/flash), Qwen3-30B-A3B, Qwen3-Coder-30B, Kimi K3, GPT-OSS-20B, Gemma-4-26B. No API key, no signup - the wallet payment is the auth; standard Bearer-key access also available. ([Models](https://pool.linkrra.com/v1/models)) ([OpenAPI](https://pool.linkrra.com/openapi.json))
 - [σ-gate Coherence Scorer](https://sigmagate.ambitiousdesert-2c4075a0.northeurope.azurecontainerapps.io) — x402-payable endpoint that scores LLM output for coherence/hallucination. `GET /check?text=...` → HTTP 402 → pay 0.001 USDC on Solana → re-call with `&tx=<sig>`. No account, no KYC; non-custodial (pays straight to a Solana wallet).
 - [σ-gate Coherence Scorer](https://swagletz-sigmagate.hf.space) — x402-payable LLM-output coherence/hallucination score. `GET /check?text=...` → HTTP 402 → pay 0.001 USDC on Solana → re-call with `&tx=<sig>`. No account, no KYC. Deterministic, ~85µs.
 
